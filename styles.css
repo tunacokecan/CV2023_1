@@ -1,0 +1,48 @@
+/* static/css/styles.css */
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 20px;
+    font-size: 10px; /* 폰트 크기 조절 */
+    font-weight: 300; /* 폰트 굵기 조절 */
+    color: #ffa500; /* Orange color */
+}
+
+h1 {
+    color: #ff7f00;
+}
+
+h2, h3 {
+    color: #ff7f00;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    color: #ffa500;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #ffa500;
+}
+
+updated {
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+img {
+    border-radius: 100%; /* 이미지를 둥글게 만듭니다. */
+}
+
+description {
+    
+    margin-bottom: 10px;
+    font-size: 13px; /* 폰트 크기 조절 */
+    color: #000000;
+}
+
+
