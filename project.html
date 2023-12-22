@@ -1,0 +1,29 @@
+﻿<!-- project.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project_data.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1>{{ project_data.title }}</h1>
+            <p>{{ project_data.details }}</p>
+
+            <!-- 동영상 삽입 -->
+            <iframe width="560" height="315" src="{{ project_data.video_url }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="right-section">
+            <h3>Company</h3>
+            <p>{{ project_data.company }}</p>
+            <h3>Year</h3>
+            <p>{{ project_data.year }}</p>
+        </div>
+    </div>
+</body>
+</html>
