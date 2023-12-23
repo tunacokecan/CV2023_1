@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heesoo Kim - </title>
+    <title>Heesoo Kim - My Resume</title>
     <link rel="stylesheet" href="./static/css/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap"> 
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap">
+
+    <style>
+        /* 초기에는 숨겨진 상태 */
+        .hidden {
+            display: none;
+        }
+        /* 프로젝트 제목에 커서를 포인터로 변경하여 클릭 가능하게 함 */
+        .project-title {
+            cursor: pointer;
+            color: blue; /* 링크처럼 파란색으로 표시 */
+        }
+    </style>
+
+    </head>
 <body>
     <div class="container">
         <div class="left-section">
@@ -17,14 +30,20 @@
     <h3>Education</h3>
     <ul>
         
-        <li>전남대학교 자율전공학부(4년)(BS), GPA - 3.71/4.5</li>
-        <li class="right-align">2020.03~ 현재</li>
+        <li>
+            전남대학교 자율전공학부(4년)(BS), GPA - 3.71/4.5
+            <span class="right-align">2020.03~ 현재</span>
+        </li>
         
-        <li>서울대학교 자유전공학부 교류학생(BS), GPA - 4.2/4.5</li>
-        <li class="right-align">2022.09~ 2022.12</li>
+        <li>
+            서울대학교 자유전공학부 교류학생(BS), GPA - 4.2/4.5
+            <span class="right-align">2022.09~ 2022.12</span>
+        </li>
         
-        <li>독일 다름슈타트 공대 교환학생 , GPA - 3.0/5.0</li>
-        <li class="right-align">2023.03 ~ 2023.08</li>
+        <li>
+            독일 다름슈타트 공대 교환학생 , GPA - 3.0/5.0
+            <span class="right-align">2023.03 ~ 2023.08</span>
+        </li>
         
     </ul>
 
@@ -47,7 +66,6 @@
         
     </ul>
 
-
     <h3>Publication</h3>
     <ul>
         
@@ -66,11 +84,25 @@
     <ul>
         
         <li>
-        <a href="{{ url_for('project', project_title=project.title) }}">{{ project.title }}, {{ project.company }} ({{ project.year }})</a>
+            <!-- 클릭 시 toggleProjectDetails 함수 호출 -->
+            <span class="project-title" onclick="toggleProjectDetails('Mindly - 컴퓨터비전 AI 모델을 활용한 감정반응형 명상공간 메타버스 ')">Mindly - 컴퓨터비전 AI 모델을 활용한 감정반응형 명상공간 메타버스 , SNU Intermedia Lab (2022.09 - 2023.2)</span>
+            <!-- 프로젝트 내용 -->
+            <div id="Mindly - 컴퓨터비전 AI 모델을 활용한 감정반응형 명상공간 메타버스 " class="hidden">
+                <p>SNU Intermedia Lab (2022.09 - 2023.2)</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=C8zjVwjON1c" frameborder="0" allowfullscreen></iframe>
+                <p>Details about the project.</p>
+            </div>
         </li>
         
         <li>
-            <a href="/project/Space%20Cleaner%20-%20%20%ED%95%98%EC%B2%B4%20%EC%9A%B4%EB%8F%99%20%EC%9C%84%EC%A3%BC%EC%9D%98%20VR%20%ED%94%BC%ED%8A%B8%EB%8B%88%EC%8A%A4%20%EA%B2%8C%EC%9E%84%20">Space Cleaner -  하체 운동 위주의 VR 피트니스 게임 , VR/AR의개론및실습 (2022.9 - 2022.12)</a>
+            <!-- 클릭 시 toggleProjectDetails 함수 호출 -->
+            <span class="project-title" onclick="toggleProjectDetails('Space Cleaner -  하체 운동 위주의 VR 피트니스 게임 ')">Space Cleaner -  하체 운동 위주의 VR 피트니스 게임 , VR/AR의개론및실습 (2022.9 - 2022.12)</span>
+            <!-- 프로젝트 내용 -->
+            <div id="Space Cleaner -  하체 운동 위주의 VR 피트니스 게임 " class="hidden">
+                <p>VR/AR의개론및실습 (2022.9 - 2022.12)</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=5TlNbF5YO0U" frameborder="0" allowfullscreen></iframe>
+                <p>Details about the project.</p>
+            </div>
         </li>
         
     </ul>
@@ -92,11 +124,14 @@
         </ul>
     </div>
 
-
-    <ul>
-        
-    </ul>
-
+    <script>
+        function toggleProjectDetails(projectTitle) {
+            var projectContent = document.getElementById(projectTitle);
+            // classList.toggle은 클래스를 추가하거나 제거합니다.
+            projectContent.classList.toggle('hidden');
+        }
+    </script>
 
 </body>
 </html>
+ 
