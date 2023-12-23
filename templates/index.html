@@ -1,67 +1,19 @@
+﻿<!-- templates/project.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ resume_data.name }} - My Resume</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap">
+    <title>{{ project_data.title }} - MyResume</title>
+    <!-- 수정된 부분: 단일 따옴표 수정 -->
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="left-section">
-            <h1>{{ resume_data.name }}</h1>
-            <p>{{ resume_data.information }}</p>
-        </div>
-    </div>
-    <h3>Education</h3>
-    <ul>
-        {% for education in resume_data.education %}
-        <li>
-            {{ education.position }}, {{ education.company }}
-            <span class="right-align">{{ education.year }}</span>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h3>Experience</h3>
-    <ul>
-        {% for job in resume_data.experience %}
-        <li>- {{ job.position }}, {{ job.company }} ({{ job.year }})</li>
-        {% endfor %}
-    </ul>
-
-    <h3>Publication</h3>
-    <ul>
-        {% for publication in resume_data.publication %}
-        <li>{{ publication.position }}, {{ publication.company }} {% if publication.year %}({{ publication.year }}){% endif %}</li>
-        {% endfor %}
-    </ul>
-
-    <h3>Awards</h3>
-    <ul>
-        {% for award in resume_data.award %}
-        <li>{{ award.position }}, {{ award.company }} ({{ award.year }})</li>
-        {% endfor %}
-    </ul>
-
-    <h3>Project</h3>
-    <ul>
-        {% for project in resume_data.project %}
-        <li>
-            <a href="{{ url_for('project', project_title=project.title) }}">{{ project.title }}, {{ project.company }} ({{ project.year }})</a>
-        </li>
-        {% endfor %}
-    </ul>
-
-    <div class="right-section">
-        <h3>Skills</h3>
-        <ul class="skills">
-            {% for skill in resume_data.skills %}
-            <li>{{ skill }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+    <h1>{{ project_data.title }}</h1>
+    <p>{{ project_data.company }} ({{ project_data.year }})</p>
+    <p>{{ project_data.details }}</p>
+    <iframe width="560" height="315" src="{{ project_data.video_url }}" frameborder="0" allowfullscreen></iframe>
+    <!-- 수정된 부분: 이미지 경로를 직접 지정하지 않고 Flask의 url_for 함수 사용 -->
+    <img src="{{ url_for('static', filename='images/resized.jpg') }}" alt="Resized Image">
 </body>
 </html>
- 
